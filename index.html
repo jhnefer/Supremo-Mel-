@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supremo Mel - Landing Page</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D4AF37", // Gold
+                        "background-light": "#FFFBF0",
+                        "background-dark": "#1A1A1A",
+                        "text-light": "#333333",
+                        "text-dark": "#E5E5E5",
+                        "accent-light": "#A0522D", // Sienna Brown
+                        "accent-dark": "#EAD6A5", // Light Gold
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Roboto", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark transition-colors duration-300">
+    
+    <section class="hero-section relative min-h-screen flex items-center justify-center text-center text-white">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 p-8">
+            
+        <a class="bg-primary/65 hover:bg-yellow-500 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 inline-block mt-40" href="#contact">
+    Solicite Nosso Catálogo Premium
+</a>
+        </div>
+    </section>
+
+    <section class="py-20 bg-background-light dark:bg-background-dark">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-accent-light dark:text-accent-dark mb-4">Qualidade Superior, Origem Sustentável</h2>
+            <p class="max-w-3xl mx-auto text-lg leading-relaxed mb-12">
+                Nossa história é forjada na paixão pela apicultura e no respeito à natureza. Cada gota do nosso mel é um testemunho da dedicação em oferecer um produto 100% puro e de origem responsável, capturando a essência de floradas raras em cada frasco.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-center text-accent-light dark:text-accent-dark mb-12">Nossos Produtos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <div class="relative flex flex-col items-center justify-end h-72 rounded-lg shadow-lg overflow-hidden group">
+                    <img alt="Extrato de Própolis" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" src="img/produto01.jpeg" />
+                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 text-white p-4 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                        <h3 class="text-2xl font-display font-bold leading-tight">Extrato de Própolis</h3>
+                        <p class="text-sm text-gray-200 mt-1">Alta concentração e pureza, o aliado ideal para o seu sistema imunológico.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col items-center justify-end h-72 rounded-lg shadow-lg overflow-hidden group">
+                    <img alt="Mel de Eucalipto" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" src="img/produto02.jpeg" />
+                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 text-white p-4 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                        <h3 class="text-2xl font-display font-bold leading-tight">Extrato de Própolis</h3>
+                        <p class="text-sm text-gray-200 mt-1">Sabor robusto e refrescante, com notas balsâmicas. Ideal para o bem-estar.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col items-center justify-end h-72 rounded-lg shadow-lg overflow-hidden group">
+                    <img alt="Mel Silvestre" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" src="img/produto03.jpeg" />
+                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 text-white p-4 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                        <h3 class="text-2xl font-display font-bold leading-tight">Extrato de Própolis</h3>
+                        <p class="text-sm text-gray-200 mt-1">Uma complexa sinfonia de néctares de flores do campo, rico e encorpado.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-12">
+                <a class="bg-primary hover:bg-yellow-500 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300" href="#contact">
+                    Descubra Mais Sabores
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-background-light dark:bg-background-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-center text-accent-light dark:text-accent-dark mb-12">Nossos Diferenciais</h2>
+            <div class="max-w-3xl mx-auto">
+                <div x-data="{ openAccordion: null }">
+                    <div class="border-b border-gray-200 dark:border-gray-700">
+                        <button @click="openAccordion = (openAccordion === 1 ? null : 1)" class="flex justify-between items-center w-full py-4 px-6 text-xl font-bold text-left text-text-light dark:text-text-dark bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none transition-colors duration-300">
+                            <div class="flex items-center">
+                                <span class="material-icons text-3xl text-primary mr-4">eco</span>
+                                100% Natural
+                            </div>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion !== 1">add</span>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion === 1">remove</span>
+                        </button>
+                        <div class="px-6 pb-4 pt-2 bg-white dark:bg-gray-700 text-text-light dark:text-text-dark" x-collapse.duration.300ms="" x-show="openAccordion === 1">
+                            <p>Nosso mel é cuidadosamente colhido e engarrafado em sua forma mais pura, sem adição de açúcares, conservantes ou qualquer outro aditivo. Garantimos um produto integralmente natural, preservando todas as suas propriedades benéficas e seu sabor autêntico.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 dark:border-gray-700">
+                        <button @click="openAccordion = (openAccordion === 2 ? null : 2)" class="flex justify-between items-center w-full py-4 px-6 text-xl font-bold text-left text-text-light dark:text-text-dark bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none transition-colors duration-300">
+                            <div class="flex items-center">
+                                <span class="material-icons text-3xl text-primary mr-4">recycling</span>
+                                Embalagem Reutilizável
+                            </div>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion !== 2">add</span>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion === 2">remove</span>
+                        </button>
+                        <div class="px-6 pb-4 pt-2 bg-white dark:bg-gray-700 text-text-light dark:text-text-dark" x-collapse.duration.300ms="" x-show="openAccordion === 2">
+                            <p>Pensando na sustentabilidade e no design, desenvolvemos embalagens de vidro premium que podem ser facilmente reutilizadas em sua casa. Após desfrutar do nosso mel, o frasco se transforma em um elegante recipiente para temperos, geleias ou como item decorativo, minimizando o impacto ambiental.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 dark:border-gray-700">
+                        <button @click="openAccordion = (openAccordion === 3 ? null : 3)" class="flex justify-between items-center w-full py-4 px-6 text-xl font-bold text-left text-text-light dark:text-text-dark bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none transition-colors duration-300">
+                            <div class="flex items-center">
+                                <span class="material-icons text-3xl text-primary mr-4">agriculture</span>
+                                Processo Artesanal
+                            </div>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion !== 3">add</span>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion === 3">remove</span>
+                        </button>
+                        <div class="px-6 pb-4 pt-2 bg-white dark:bg-gray-700 text-text-light dark:text-text-dark" x-collapse.duration.300ms="" x-show="openAccordion === 3">
+                            <p>Cada etapa da produção do Supremo Mel é realizada com um toque artesanal e um rigoroso controle de qualidade. Desde o manejo cuidadoso das colmeias em locais protegidos até a embalagem final, garantimos que cada frasco carregue a dedicação e a paixão pela apicultura, resultando em um mel de sabor e textura inigualáveis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 dark:border-gray-700">
+                        <button @click="openAccordion = (openAccordion === 4 ? null : 4)" class="flex justify-between items-center w-full py-4 px-6 text-xl font-bold text-left text-text-light dark:text-text-dark bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none transition-colors duration-300">
+                            <div class="flex items-center">
+                                <span class="material-icons text-3xl text-primary mr-4">local_florist</span>
+                                Floradas Raras
+                            </div>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion !== 4">add</span>
+                            <span class="material-icons text-3xl text-primary" x-show="openAccordion === 4">remove</span>
+                        </button>
+                        
+                        <div class="px-6 pb-6 pt-2 bg-white dark:bg-gray-700 text-text-light dark:text-text-dark" x-collapse.duration.300ms="" x-show="openAccordion === 4">
+                            
+                            <p class="text-sm mb-6">Conheça as 5 principais floradas que dão origem aos nossos méis exclusivos:</p>
+                            
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+                                
+                                <div class="relative flex flex-col items-center justify-end h-60 rounded-lg shadow-lg overflow-hidden group">
+                                    <img src="img/fava-de-bolota-feature.jpg" alt="Fava de Bolota" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 text-white p-3 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                                        <p class="text-base font-bold leading-tight">Fava de Bolota</p>
+                                        <p class="text-xs text-gray-200">Uma árvore nativa que produz um mel amargo, com propriedades medicinais e que tende a ser mais caro.</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative flex flex-col items-center justify-end h-60 rounded-lg shadow-lg overflow-hidden group">
+                                    <img src="img/Jitirana.jpg" alt="Melosa Jitirana" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 text-white p-3 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                                        <p class="text-base font-bold leading-tight">Melosa (Jitirana)</p>
+                                        <p class="text-xs text-gray-200">Um pasto apícola silvestre abundante na região, que contribui para o mel.</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative flex flex-col items-center justify-end h-60 rounded-lg shadow-lg overflow-hidden group">
+                                    <img src="img/vassourinha de botão.webp" alt="vassourinha de botão" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 text-white p-3 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                                        <p class="text-base font-bold leading-tight">Vassoura de botão</p>
+                                        <p class="text-xs text-gray-200"> Conhecida popularmente, é outra planta que contribui para a composição do mel. </p>
+                                    </div>
+                                </div>
+
+                                <div class="relative flex flex-col items-center justify-end h-60 rounded-lg shadow-lg overflow-hidden group">
+                                    <img src="img/angico de bezerro.JPG" alt="angico de bezerro" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 text-white p-3 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                                        <p class="text-base font-bold leading-tight">Angico de bezerro</p>
+                                        <p class="text-xs text-gray-200">Outra planta apícola silvestre encontrada na região, que também pode ser fonte de néctar</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative flex flex-col items-center justify-end h-60 rounded-lg shadow-lg overflow-hidden group">
+                                    <img src="img/generica.jpg" alt="outras especies" class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                    <div class="absolute inset-x-0 bottom-0 bg-black bg-opacity-60
+                                    text-white p-3 text-center transition-all duration-300 group-hover:bg-opacity-80">
+                                        <p class="text-base font-bold leading-tight">Outras espécies</p>
+                                        <p class="text-xs text-gray-200">O mel pode ter contribuições do marmelo, velame e bamburral, baseado na proximidade com o Piauí.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="mt-6 text-sm text-gray-700 dark:text-gray-300">Nossos apiários são estrategicamente localizados em regiões com floradas exclusivas e raras, distantes de áreas urbanas e poluídas, garantindo méis de características únicas.</p>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 dark:bg-gray-800" id="contact">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto bg-white dark:bg-gray-700 rounded-lg shadow-xl p-8 md:p-12">
+                <h2 class="text-3xl font-display font-bold text-center text-accent-light dark:text-accent-dark mb-2">Entre em Contato</h2>
+                <p class="text-center mb-8">Receba nosso catálogo completo e informações sobre preços e pedidos personalizados.</p>
+                <form action="#" method="POST">
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="name">Nome</label>
+                        <input class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark focus:outline-none focus:ring-2 focus:ring-primary" id="name" name="name" required="" type="text" />
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="email">Email / WhatsApp</label>
+                        <input class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark focus:outline-none focus:ring-2 focus:ring-primary" id="email" name="email" required="" type="text" placeholder="seu@email.com ou (XX) 9XXXX-XXXX" />
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-text-light dark:text-text-dark mb-2" for="subject">Assunto</label>
+                        <input class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark focus:outline-none focus:ring-2 focus:ring-primary" id="subject" name="subject" required="" type="text" />
+                    </div>
+                    <div class="text-center">
+                        <button class="w-full bg-primary hover:bg-yellow-500 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300" type="submit">
+                            Receber Catálogo e Preços
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-background-light dark:bg-background-dark py-6">
+        <div class="container mx-auto px-6 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>© 2025 Supremo Mel. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script defer="" src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    </body>
+
+</html>

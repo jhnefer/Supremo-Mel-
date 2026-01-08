@@ -1,0 +1,6 @@
+/* Estilo CSS puro: Define a imagem de fundo para a seção hero */
+.hero-section {
+    background-image: url('../img/cartaz.jpeg');
+    background-size: cover;
+    background-position: center;
+}
