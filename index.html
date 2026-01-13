@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="css/styles.css">
+   
     <link rel="stylesheet" href="css/main.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,25 +12,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#D4AF37",
-                        "background-light": "#FFFBF0",
-                        "background-dark": "#1A1A1A",
-                    },
-                    fontFamily: {
-                        display: ["Playfair Display", "serif"],
-                        body: ["Roboto", "sans-serif"],
-                    },
-                },
-            },
-        };
-    </script>
-    <!-- responsável pela rolagem suave -->
+    <script src="js/tailwind-config.js"></script>
+  
 
  
 </head>
@@ -131,32 +114,10 @@
             <div class="h-0.5 w-20 bg-amber-500/40 mx-auto"></div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto mb-32">
-            
-            <div class="group bg-white p-10 rounded-[2.5rem] border-2 border-amber-500 flex flex-col items-center text-center transition-all duration-500 hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
-                <div class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center mb-8 transition-colors">
-                    <span class="material-icons text-5xl text-amber-600 animate-[wiggle_3s_ease-in-out_infinite]">eco</span>
-                </div>
-                <h3 class="text-2xl font-display font-bold mb-4 text-[#4a2c0a]">100% Natural</h3>
-                <p class="text-[#5d4037] leading-relaxed font-light text-lg italic opacity-90">
-                    "Nosso mel é colhido e engarrafado em sua forma mais pura, sem qualquer aditivo, preservando a essência da mata."
-                </p>
-            </div>
-
-            <div class="group bg-white p-10 rounded-[2.5rem] border-2 border-amber-500 flex flex-col items-center text-center transition-all duration-500 hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
-                <div class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center mb-8 transition-colors">
-                    <span class="material-icons text-5xl text-amber-600 animate-[tractor_2s_ease-in-out_infinite]">agriculture</span>
-                </div>
-                <h3 class="text-2xl font-display font-bold mb-4 text-[#4a2c0a]">Processo Artesanal</h3>
-                <p class="text-[#5d4037] leading-relaxed font-light text-lg italic opacity-90">
-                    "Cada etapa da produção é realizada com rigoroso controle de qualidade, respeitando o ciclo natural das abelhas."
-                </p>
-            </div>
-        </div>
+        <div id="cards-principais-diferenciais"></div>
 
         <div class="relative -mx-6 px-6 py-16">
             <div class="absolute inset-0 bg-gradient-to-r from-amber-50/40 via-transparent to-amber-50/40 pointer-events-none"></div>
-
             <div class="relative z-10">
                 <div class="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-[#4a2c0a]/10 pb-8">
                     <span class="material-icons text-amber-600 text-5xl animate-spin-slow">local_florist</span>
@@ -165,79 +126,12 @@
                         <p class="text-amber-600 text-sm mt-2 font-light uppercase tracking-[0.2em]">Uma jornada sensorial pela biodiversidade maranhense</p>
                     </div>
                 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-    
-    <div class="group/item flex flex-col">
-        <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
-            <img src="img/floradas/fava-de-bolota-feature.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
-        </div>
-        <div class="px-2">
-            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Fava de Bolota</h4>
-            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
-                Uma árvore nativa que produz um mel amargo, com propriedades medicinais e um sabor marcante.
-            </p>
-        </div>
-    </div>
-
-    <div class="group/item flex flex-col">
-        <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
-            <img src="img/floradas/Jitirana.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
-        </div>
-        <div class="px-2">
-            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Jitirana</h4>
-            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
-                Um pasto apícola rico em néctar, resultando em um mel suave e floral, perfeito para paladares delicados.
-            </p>
-        </div>
-    </div>
-
-    <div class="group/item flex flex-col">
-        <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
-            <img src="img/floradas/vassourinha.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
-        </div>
-        <div class="px-2">
-            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Vassourinha</h4>
-            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
-                Conhecida popularmente, oferece um mel claro e refrescante, ideal para adoçar bebidas e receitas finas.
-            </p>
-        </div>
-    </div>
-
-    <div class="group/item flex flex-col">
-        <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
-            <img src="img/floradas/angico de bezerro.JPG" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
-        </div>
-        <div class="px-2">
-            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Angico</h4>
-            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
-                Mel monofloral com propriedades medicinais, sabor suave e frutado de coloração límpida e clara.
-            </p>
-        </div>
-    </div>
-
-    <div class="group/item flex flex-col">
-        <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
-            <img src="img/floradas/outras_especies.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
-        </div>
-        <div class="px-2">
-            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Outras Espécies</h4>
-            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
-                Contribuições do marmelo, velame e bamburral, típicos da biodiversidade entre Maranhão e Piauí.
-            </p>
-        </div>
-    </div>
-
-</div>
+                
+                <div id="grid-floradas"></div>
             </div>
         </div>
     </div>
 </section>
-
 
 <section id="institucional" class="py-24 bg-[#fdfcf7] relative overflow-hidden">
     
@@ -456,10 +350,11 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
 }
 </script>
 
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/tailwind-config.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/data.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
 </body>
 
 </html>

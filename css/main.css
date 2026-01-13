@@ -1,15 +1,59 @@
-/* Estilo CSS puro: Define a imagem de fundo para a seção hero */
+/* css/main.css */
+
+/* --- SEÇÃO HERO --- */
 .hero-section {
     background-image: url('../img/cartaz.jpeg');
     background-size: cover;
     background-position: center;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+/* --- COMPORTAMENTO GLOBAL --- */
+html { 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 80px; 
+}
 
-@keyframes wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-@keyframes tractor { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* --- UTILITÁRIOS DE SCROLL (Esconder barra) --- */
+.scrollbar-hide::-webkit-scrollbar { 
+    display: none; 
+}
+.scrollbar-hide { 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+/* --- ANIMAÇÕES (Keyframes) --- */
+@keyframes wiggle { 
+    0%, 100% { transform: rotate(-3deg); } 
+    50% { transform: rotate(3deg); } 
+}
+
+@keyframes tractor { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(-3px); } 
+}
+
+@keyframes spin-slow { 
+    from { transform: rotate(0deg); } 
+    to { transform: rotate(360deg); } 
+}
+
+/* Classes de Animação */
 .animate-spin-slow { animation: spin-slow 10s linear infinite; }
+.animate-wiggle { animation: wiggle 3s ease-in-out infinite; }
+.animate-tractor { animation: tractor 2s ease-in-out infinite; }
+
+/* --- AJUSTES DO CARROSSEL (Efeito Esfumaçado) --- */
+/* Esta classe garante que o gradiente do carrossel modular funcione bem */
+.bg-gradient-to-b {
+    pointer-events: none; /* Garante que o gradiente não bloqueie cliques nos botões */
+}
+
+/* Ajuste de opacidade para a imagem de fundo dos produtos */
+#vitrine-mel img, #vitrine-farinhas img, #vitrine-cereais img, 
+#vitrine-especiarias img, #vitrine-fitness img {
+    /* Seleciona apenas a imagem de fundo dentro das vitrines */
+    &.object-cover {
+        filter: saturate(1.1); /* Opcional: deixa as cores da natureza um pouco mais vivas */
+    }
+}
