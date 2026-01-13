@@ -56,3 +56,21 @@ html {
         filter: saturate(1.1); /* Opcional: deixa as cores da natureza um pouco mais vivas */
     }
 }
+/* --- MELHORIA DE QUALIDADE DE IMAGEM --- */
+img {
+    
+    image-rendering: -webkit-optimize-contrast; 
+    image-rendering: crisp-edges;               
+    image-rendering: auto;                      
+
+    /* Suavização de bordas */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#grid-floradas img {
+    /* Força o uso do processador gráfico para manter a nitidez no tablet */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

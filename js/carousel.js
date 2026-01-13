@@ -75,8 +75,13 @@ function gerarFloradas(idAlvo, listaFloradas) {
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
             ${listaFloradas.map(f => `
                 <div class="group/item flex flex-col">
-                    <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
-                        <img src="${f.img}" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110" alt="${f.titulo}">
+                    <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative bg-stone-200">
+                        <img src="${f.img}" 
+                             class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover/item:scale-110" 
+                             style="image-rendering: -webkit-optimize-contrast; image-rendering: high-quality;"
+                             alt="${f.titulo}"
+                             loading="lazy">
+                        
                         <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
                     </div>
                     <div class="px-2">
