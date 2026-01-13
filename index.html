@@ -1,360 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-   
-    <link rel="stylesheet" href="css/main.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supremo Mel</title>
 
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script src="js/tailwind-config.js"></script>
-  
-
- 
 </head>
+
 <body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark transition-colors duration-300 overflow-x-hidden">
     
-<nav x-data="{ open: false }" class="absolute top-0 left-0 w-full z-50 py-6 px-4 md:px-10 flex justify-between items-center bg-transparent">
-    
-    <img src="img/supremomellogo-Photoroom.png" alt="Supremo Mel Logo" class="h-16 md:h-12 object-contain relative z-[60]" />
-    
-    <div class="hidden md:flex space-x-4">
-        <a href="#produtos" 
-           class="px-5 py-2 rounded-full border-2 border-[#b88f14] text-white font-display font-bold italic tracking-wide transition-all duration-300 hover:bg-[#e6b219] hover:text-white hover:shadow-[0_0_20px_rgba(180,83,9,0.3)] transform hover:scale-105 text-lg bg-yellow-500/90">
-            Produtos
-        </a>
+    <div id="navbar-placeholder"></div>
 
-        <a href="#diferenciais" 
-           class="px-5 py-2 rounded-full border-2 border-[#b88f14] text-white font-display font-bold italic tracking-wide transition-all duration-300 hover:bg-[#e6b219] hover:text-white hover:shadow-[0_0_20px_rgba(180,83,9,0.3)] transform hover:scale-105 text-lg bg-yellow-500/90">
-            Diferenciais
-        </a>
-
-        <a href="#contact"
-           class="px-5 py-2 rounded-full border-2 border-[#b88f14] text-white font-display font-bold italic tracking-wide flex items-center transition-all duration-300 hover:bg-[#e6b219] hover:text-white hover:shadow-[0_0_20px_rgba(180,83,9,0.3)] transform hover:scale-105 text-lg bg-yellow-500/90">
-            Contato
-        </a>
-    </div>
-
-    <button @click="open = !open" class="md:hidden relative z-[60] p-2 text-white bg-yellow-500/90 rounded-xl border border-[#b88f14] shadow-lg">
-        <span class="material-icons text-3xl" x-text="open ? 'close' : 'menu'">menu</span>
-    </button>
-
-    <div x-show="open" 
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="opacity-0 -translate-y-full"
-         x-transition:enter-end="opacity-100 translate-y-0"
-         x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100 translate-y-0"
-         x-transition:leave-end="opacity-0 -translate-y-full"
-         @click.away="open = false"
-         class="absolute top-0 left-0 w-full bg-[#fdfcf7] shadow-2xl p-10 pt-32 flex flex-col space-y-4 md:hidden z-[50] border-b-4 border-[#b88f14]">
-        
-        <a href="#produtos" @click="open = false" 
-           class="px-6 py-4 rounded-2xl border-2 border-[#b88f14] text-white font-display font-bold italic text-center bg-yellow-500/90 text-xl shadow-md">
-           Produtos
-        </a>
-        <a href="#diferenciais" @click="open = false" 
-           class="px-6 py-4 rounded-2xl border-2 border-[#b88f14] text-white font-display font-bold italic text-center bg-yellow-500/90 text-xl shadow-md">
-           Diferenciais
-        </a>
-        <a href="#contact" @click="open = false" 
-           class="px-6 py-4 rounded-2xl border-2 border-[#b88f14] text-white font-display font-bold italic text-center bg-yellow-500/90 text-xl shadow-md">
-           Contato
-        </a>
-    </div>
-</nav>
-<section class="relative h-screen w-full overflow-hidden">
-    <img src="img/Tela Site Supremo Mel.png" class="absolute inset-0 w-full h-full object-cover" alt="Supremo Mel">
-
-    <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-white via-amber-500/40 to-transparent pointer-events-none"></div>
-
-    <div class="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-40">
-        
-        <a href="#produtos" 
-           class="bg-primary/70 backdrop-blur-md text-white font-display font-bold italic tracking-wide font-bold py-5 px-14 rounded-full transition-all duration-500 
-                  hover:bg-yellow-500 hover:text-white hover:shadow-[0_0_45px_rgba(234,179,8,0.9)]
-                  text-2xl transform hover:scale-110 active:scale-95 shadow-2xl bg-yellow-500/80 border border-yellow-600/70">
-            Conhecer Produtos
-        </a>
-        
-    </div>
-</section>
+    <section class="relative h-screen w-full overflow-hidden">
+        <img src="img/Tela Site Supremo Mel.png" class="absolute inset-0 w-full h-full object-cover" alt="Supremo Mel">
+        <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-white via-amber-500/40 to-transparent pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-40">
+            <a href="#produtos" 
+               class="bg-primary/70 backdrop-blur-md text-white font-display font-bold italic tracking-wide py-5 px-14 rounded-full transition-all duration-500 hover:bg-yellow-500 hover:text-white hover:shadow-[0_0_45px_rgba(234,179,8,0.9)] text-2xl transform hover:scale-110 active:scale-95 shadow-2xl bg-yellow-500/80 border border-yellow-600/70">
+                Conhecer Produtos
+            </a>
+        </div>
+    </section>
 
     <section class="py-20 bg-background-light dark:bg-background-dark">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight">
-            Qualidade Superior, Origem Sustentável
-        </h2>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight">
+                Qualidade Superior, Origem Sustentável
+            </h2>
+            <p class="max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-20 text-[#F49E0B] dark:text-stone-300 font-serif italic opacity-90 tracking-wide">
+                "Nossa história é forjada na paixão pela apicultura e no respeito à natureza. Cada gota do nosso mel é um testemunho da dedicação em oferecer um produto 100% puro.
+                Também somos responsáveis por fornecer produtos derivados do mel, além de alimentos de origem natural."
+            </p>
+        </div>
+    </section>
 
-        <p class="max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-20 text-[#F49E0B] dark:text-stone-300 font-serif italic opacity-90 tracking-wide">
-            "Nossa história é forjada na paixão pela apicultura e no respeito à natureza. Cada gota do nosso mel é um testemunho da dedicação em oferecer um produto 100% puro.
-                Também somos responsáveis por fornecer produtos derivados do mel, além de alimentos de origem natural.
-            
-        </p>
-    </div>
-</section>
+    <section id="produtos">
+        <div id="vitrine-mel"></div>
+        <div id="vitrine-farinhas"></div>
+        <div id="vitrine-cereais"></div>
+        <div id="vitrine-especiarias"></div>
+        <div id="vitrine-fitness"></div>
+    </section>
 
-<section id="produtos">
-<div id="vitrine-mel"></div>
-<div id="vitrine-farinhas"></div>
-<div id="vitrine-cereais"></div>
-<div id="vitrine-especiarias"></div>
-<div id="vitrine-fitness"></div></section>
+    <section id="diferenciais" class="py-24 bg-[#fdfcf7] relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <span class="text-amber-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Excelência e Tradição</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight">Nossos Diferenciais</h2>
+                <div class="h-0.5 w-20 bg-amber-500/40 mx-auto"></div>
+            </div>
+            <div id="cards-principais-diferenciais"></div>
+            <div class="relative -mx-6 px-6 py-16">
+                <div class="absolute inset-0 bg-gradient-to-r from-amber-50/40 via-transparent to-amber-50/40 pointer-events-none"></div>
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-[#4a2c0a]/10 pb-8">
+                        <span class="material-icons text-amber-600 text-5xl animate-spin-slow">local_florist</span>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-3xl md:text-4xl font-display font-bold text-[#4a2c0a] italic tracking-wide">Floradas Exclusivas</h3>
+                            <p class="text-amber-600 text-sm mt-2 font-light uppercase tracking-[0.2em]">Uma jornada sensorial pela biodiversidade maranhense</p>
+                        </div>
+                    </div>
+                    <div id="grid-floradas"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="diferenciais" class="py-24 bg-[#fdfcf7] relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center mb-20">
-            <span class="text-amber-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Excelência e Tradição</span>
-            <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight">Nossos Diferenciais</h2>
+    <section id="institucional" class="py-24 bg-[#fdfcf7] relative overflow-hidden">
+        <div class="container mx-auto px-6 mb-16 text-center relative z-10">
+            <span class="text-amber-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Sobre a Supremo Mel</span>
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight">Nossa Essência</h2>
             <div class="h-0.5 w-20 bg-amber-500/40 mx-auto"></div>
         </div>
-        
-        <div id="cards-principais-diferenciais"></div>
-
-        <div class="relative -mx-6 px-6 py-16">
-            <div class="absolute inset-0 bg-gradient-to-r from-amber-50/40 via-transparent to-amber-50/40 pointer-events-none"></div>
-            <div class="relative z-10">
-                <div class="flex flex-col md:flex-row items-center gap-6 mb-16 border-b border-[#4a2c0a]/10 pb-8">
-                    <span class="material-icons text-amber-600 text-5xl animate-spin-slow">local_florist</span>
-                    <div class="text-center md:text-left">
-                        <h3 class="text-3xl md:text-4xl font-display font-bold text-[#4a2c0a] italic tracking-wide">Floradas Exclusivas</h3>
-                        <p class="text-amber-600 text-sm mt-2 font-light uppercase tracking-[0.2em]">Uma jornada sensorial pela biodiversidade maranhense</p>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-[1300px] mx-auto items-stretch">
+                <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
+                    <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                        <span class="material-icons text-2xl">ads_click</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Missão</h3>
+                    <p class="text-[#5d4037] leading-relaxed font-light italic text-base opacity-90">Prover produtos naturais de alta qualidade, inspirados nos princípios cristãos de amor e integridade.</p>
+                </div>
+                <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
+                    <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                        <span class="material-icons text-2xl">visibility</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Visão</h3>
+                    <p class="text-[#5d4037] leading-relaxed font-light italic text-base opacity-90">Ser a referência em produtos naturais, inspirando vidas em harmonia com a natureza e com Deus.</p>
+                </div>
+                <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
+                    <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                        <span class="material-icons text-2xl">auto_awesome</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Valores</h3>
+                    <div class="flex flex-wrap gap-x-4 gap-y-4">
+                        <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Qualidade</span>
+                        <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Integridade</span>
+                        <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Responsabilidade</span>
+                        <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Amor</span>
+                        <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Excelência</span>
                     </div>
                 </div>
-                
-                <div id="grid-floradas"></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="institucional" class="py-24 bg-[#fdfcf7] relative overflow-hidden">
-    
-    <div class="container mx-auto px-6 mb-16 text-center relative z-10">
-        <span class="text-amber-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Sobre a Supremo Mel</span>
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tightc">Nossa Essência</h2>
-        <div class="h-0.5 w-20 bg-amber-500/40 mx-auto"></div>
-    </div>
-
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-[1300px] mx-auto items-stretch">
-            
-            <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 
-                        hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2 ">
-                
-                <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-600 group-hover:text-white">
-                    <span class="material-icons text-2xl">ads_click</span>
-                </div>
-                
-                <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Missão</h3>
-                
-                <p class="text-[#5d4037]  font-bold italic text-eading-relaxed font-light italic text-base opacity-90">
-                    Prover produtos naturais de alta qualidade, inspirados nos princípios cristãos de amor e integridade, promovendo saúde e bem-estar.
+    <section class="py-12 bg-gray-50 dark:bg-gray-800" id="contact">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight italic">Entre em Contato</h2>
+                <p class="text-lg mb-8 italic text-[#b45309] dark:text-stone-300 leading-relaxed">
+                    Tem alguma dúvida ou deseja fazer um pedido especial? Clique no botão abaixo para falar conosco agora mesmo pelo WhatsApp.
                 </p>
-            </div>
-
-            <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 
-                        hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
-                
-                <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-600 group-hover:text-white">
-                    <span class="material-icons text-2xl">visibility</span>
-                </div>
-                
-                <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Visão</h3>
-                
-                <p class="text-[#5d4037] leading-relaxed font-light italic text-base opacity-90">
-                    Ser a referência em produtos naturais, reconhecida pela paixão e compromisso, inspirando vidas em harmonia com a natureza e com Deus.
-                </p>
-            </div>
-
-            <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 
-                        hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
-                
-                <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-600 group-hover:text-white">
-                    <span class="material-icons text-2xl">auto_awesome</span>
-                </div>
-                
-                <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Valores</h3>
-                
-                <div class="flex flex-wrap gap-x-4 gap-y-4">
-                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Qualidade
-                    </span>
-                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Integridade
-                    </span>
-                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Responsabilidade
-                    </span>
-                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Amor
-                    </span>
-                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Excelência
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<section class="py-12 bg-gray-50 dark:bg-gray-800" id="contact">
-    <div class="container mx-auto px-6 text-center">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight italic]">
-                Entre em Contato
-            </h2>
-
-            <p class=" text-lg mb-8 italic text-[#F49E0B] dark:text-stone-300 leading-relaxed">
-                Tem alguma dúvida ou deseja fazer um pedido especial? <br class="hidden md:block">
-                Clique no botão abaixo para falar conosco agora mesmo pelo WhatsApp.
-            </p>
-            
-     <a href="https://wa.me/5598985710371" 
-   target="_blank"
-   class="inline-flex items-center gap-3 bg-transparent border-2 border-primary text-primary font-bold py-5 px-12 rounded-full transition-all duration-300 hover:bg-primary hover:text-white group text-xl md:text-2xl shadow-lg hover:shadow-primary/30">
-    
-    <svg 
-        class="w-8 h-8 fill-current" 
-        viewBox="0 0 24 24" 
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-
-    Falar no WhatsApp
-</a> </div>
-    </div>
-</section>
-<footer class="relative bg-[#2d1b07] text-white pt-20 pb-10 overflow-hidden" style="margin-top: 0 !important; border-top: none !important;">
-    <div class="absolute top-0 right-0 opacity-[0.03] pointer-events-none">
-        <svg width="300" height="300" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 .587l3.668 2.117v4.234L12 11.055 8.332 8.938V4.704L12 .587z"/>
-        </svg>
-    </div>
-
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            
-            <div class="col-span-1">
-                <img src="img/supremomellogo-Photoroom.png" alt="Supremo Mel" class="w-32 h-auto mb-6 brightness-0 invert">
-                <p class="text-stone-400 text-sm leading-relaxed italic">
-                    "Produzindo o melhor mel artesanal da nossa região com pureza, dedicação e total respeito às abelhas."
-                </p>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-bold text-amber-500 mb-6 border-b border-amber-500/20 pb-2 inline-block uppercase tracking-widest text-xs">Navegação</h4>
-                <ul class="space-y-4 text-sm text-stone-300">
-                    <li><a href="#" class="hover:text-amber-500 transition-all flex items-center gap-2"><span>•</span> Início</a></li>
-                    <li><a href="#produtos" class="hover:text-amber-500 transition-all flex items-center gap-2"><span>•</span> Produtos</a></li>
-                    <li><a href="#diferenciais" class="hover:text-amber-500 transition-all flex items-center gap-2"><span>•</span> Diferenciais</a></li>
-                    <li><a href="#contact" class="hover:text-amber-500 transition-all flex items-center gap-2"><span>•</span> Contato</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-bold text-amber-500 mb-6 border-b border-amber-500/20 pb-2 inline-block uppercase tracking-widest text-xs">Contato</h4>
-                <ul class="space-y-4 text-sm text-stone-300">
-                    <li>
-                        <a href="https://maps.app.goo.gl/mVzsBduJYBEgRxSD72" target="_blank" class="flex items-center hover:text-amber-500 transition">
-                            <span class="material-icons text-amber-500 mr-3 text-base">location_on</span>
-                            <span>Santa Inês, Maranhão</span>
-                        </a>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="material-icons text-amber-500 mr-3 text-base">phone</span>
-                        <span>(98) 98571-0371</span>
-                    </li>
-                    <li>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=supremomel.sm@gmail.com" target="_blank" class="flex items-center hover:text-amber-500 transition">
-                            <span class="material-icons text-amber-500 mr-3 text-base">email</span>
-                            <span class="break-all text-xs md:text-sm">supremomel.sm@gmail.com</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-bold text-amber-500 mb-6 border-b border-amber-500/20 pb-2 inline-block uppercase tracking-widest text-xs">Siga-nos</h4>
-                <div class="flex space-x-4">
-                    <a href="https://www.instagram.com/supremomeloficial" target="_blank" 
-                       class="w-12 h-12 rounded-full bg-stone-800 flex items-center justify-center text-white hover:bg-amber-600 hover:-translate-y-1 transition-all duration-300 shadow-xl border border-stone-700">
-                        <i class="fa-brands fa-instagram text-xl"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@supremo_mel0" target="_blank" 
-                       class="w-12 h-12 rounded-full bg-stone-800 flex items-center justify-center text-white hover:bg-amber-600 hover:-translate-y-1 transition-all duration-300 shadow-xl border border-stone-700">
-                        <i class="fa-brands fa-tiktok text-lg"></i>
-                    </a>
-                </div>
-                <p class="mt-6 text-[10px] text-stone-500 uppercase tracking-widest">Acompanhe nossa rotina</p>
-            </div>
-
-        </div>
-
-        <div class="border-t border-stone-800 pt-8 text-center">
-            <p class="text-stone-500 text-[10px] uppercase tracking-[0.2em]">
-                © 2026 <span class="text-amber-600">Supremo Mel</span>. Todos os direitos reservados.
-            </p>
-        </div>
-    </div>
-</footer>
-<script>
-function criarCarrossel(idAlvo, tituloLinha, produtos) {
-    const container = document.getElementById(idAlvo);
-    if(!container) return;
-
-    const cardsHTML = produtos.map(p => `
-        <div class="snap-center shrink-0 w-[280px] md:w-[320px] h-[420px] relative transition-all duration-500 hover:scale-105 group">
-            <div class="absolute inset-0 bg-amber-400/20 rounded-full blur-[60px] transform scale-75 group-hover:scale-110 transition-transform"></div>
-            <div class="relative z-10 w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/40">
-                <img src="${p.img}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${p.extraClass || ''}">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/90 via-black/10 flex flex-col justify-end items-center p-8 text-center">
-                    <h3 class="text-white text-xl md:text-2xl font-display font-bold italic tracking-wide drop-shadow-lg">${p.nome}</h3>
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    container.innerHTML = `
-    <section class="py-24 relative overflow-hidden bg-white border-b border-amber-50">
-        <div class="absolute inset-0 z-0">
-            <img src="img/fundo_produtos.jpg" class="w-full h-full object-cover opacity-70">
-            <div class="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white to-transparent"></div>
-            <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white to-transparent"></div>
-        </div>
-        <div class="container mx-auto px-4 relative z-10 max-w-[98%]" x-data="{ scrollNext() { $refs.container.scrollBy({ left: 320, behavior: 'smooth' }) }, scrollPrev() { $refs.container.scrollBy({ left: -320, behavior: 'smooth' }) } }">
-            <div class="mb-12 relative text-left md:pl-10">
-                <span class="text-amber-600 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Seleção Exclusiva</span>
-                <h2 class="text-3xl md:text-5xl font-display font-extrabold text-[#4a2c0a] mb-2 tracking-tight">Linha <span class="text-amber-500">${tituloLinha}</span></h2>
-                <div class="h-1 w-24 bg-amber-500 rounded-full"></div>
-            </div>
-            <button @click="scrollPrev()" class="absolute left-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 transition-all hover:bg-amber-500 hover:text-white"><span class="material-icons">chevron_left</span></button>
-            <button @click="scrollNext()" class="absolute right-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 transition-all hover:bg-amber-500 hover:text-white"><span class="material-icons">chevron_right</span></button>
-            <div x-ref="container" class="flex overflow-x-auto gap-8 pb-10 pt-4 px-6 scroll-smooth scrollbar-hide snap-x h-[520px] items-center cursor-grab active:cursor-grabbing">
-                ${cardsHTML}
-            </div>
-            <div class="flex justify-end mt-4 pr-6">
-                <a href="https://wa.me/5598985710371" target="_blank" class="group inline-flex items-center gap-3 bg-[#4a2c0a] text-white font-bold py-3 px-8 rounded-2xl transition-all duration-300 hover:bg-amber-600 shadow-xl transform hover:-translate-y-1">
-                    <span>Conhecer mais produtos</span>
-                    <span class="material-icons transition-transform group-hover:translate-x-2">arrow_forward</span>
+                <a href="https://wa.me/5598985710371" target="_blank" class="inline-flex items-center gap-3 bg-transparent border-2 border-primary text-primary font-bold py-5 px-12 rounded-full transition-all duration-300 hover:bg-primary hover:text-white group text-xl md:text-2xl shadow-lg hover:shadow-primary/30">
+                    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Falar no WhatsApp
                 </a>
             </div>
         </div>
-    </section>`;
-}
-</script>
+    </section>
 
-    <script src="js/tailwind-config.js"></script>
+    <div id="footer-placeholder"></div>
+
     <script src="js/carousel.js"></script>
     <script src="js/data.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
-</body>
-
 </html>

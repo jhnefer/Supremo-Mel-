@@ -1,8 +1,31 @@
 // js/data.js
 
+// Função para carregar componentes HTML externos (Navbar/Footer)
+async function carregarComponente(id, ficheiro) {
+    try {
+        const response = await fetch(ficheiro);
+        if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+        const html = await response.text();
+        const el = document.getElementById(id);
+        if (el) {
+            el.innerHTML = html;
+            // Força o Alpine.js a reconhecer o novo conteúdo injetado
+            if (window.Alpine) {
+                window.Alpine.discover();
+            }
+        }
+    } catch (error) {
+        console.error("Erro ao carregar o componente:", ficheiro, error);
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. VITRINES DE PRODUTOS (Carrosséis) ---
+    // --- 1. CARREGAMENTO DE COMPONENTES (Navbar e Footer) ---
+    carregarComponente('navbar-placeholder', 'components/navbar.html');
+    carregarComponente('footer-placeholder', 'components/footer.html');
+
+    // --- 2. VITRINES DE PRODUTOS (Carrosséis) ---
     criarCarrossel('vitrine-mel', 'Mel e Derivados', [
         { nome: 'Mel Cremoso', img: 'img/produtos/mel_cremoso.jpeg' },
         { nome: 'Mel Puro', img: 'img/produtos/mel_puro.jpeg' },
@@ -50,7 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
         { nome: 'Argila Vermelha', img: 'img/produtos/Fitenn e Estetica/argila_vermelha.jpg' }
     ]);
 
-    // --- 2. DIFERENCIAIS (Cards Superiores) ---
+    // --- 3. DIFERENCIAIS (Cards Superiores) ---
     gerarDiferenciaisPrincipais('cards-principais-diferenciais', [
         {
             icone: 'eco',
@@ -66,7 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     ]);
 
-    // --- 3. FLORADAS EXCLUSIVAS (Grade Inferior) ---
+    // --- 4. FLORADAS EXCLUSIVAS (Grade Inferior) ---
     gerarFloradas('grid-floradas', [
         {
             titulo: 'Fava de Bolota',
