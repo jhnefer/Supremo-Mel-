@@ -1,21 +1,22 @@
 // js/data.js
 
 // Função para carregar componentes HTML externos (Navbar/Footer)
-async function carregarComponente(id, ficheiro) {
+async function carregarComponente(id, path) {
     try {
-        const response = await fetch(ficheiro);
-        if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`Erro ao buscar: ${path}`);
         const html = await response.text();
         const el = document.getElementById(id);
+        
         if (el) {
             el.innerHTML = html;
-            // Força o Alpine.js a reconhecer o novo conteúdo injetado
+            // Forma correta e moderna de inicializar o Alpine em conteúdos dinâmicos
             if (window.Alpine) {
-                window.Alpine.discover();
+                window.Alpine.initTree(el);
             }
         }
     } catch (error) {
-        console.error("Erro ao carregar o componente:", ficheiro, error);
+        console.error("Erro ao carregar o componente:", path, error);
     }
 }
 
