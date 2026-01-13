@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supremo Mel</title>
@@ -30,16 +32,7 @@
     </script>
     <!-- responsável pela rolagem suave -->
 
-    <style>
-        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        @keyframes wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-        @keyframes tractor { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .animate-spin-slow { animation: spin-slow 10s linear infinite; }
-    </style>
+ 
 </head>
 <body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark transition-colors duration-300 overflow-x-hidden">
     
@@ -462,65 +455,10 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
     </section>`;
 }
 </script>
-<script>
-// Chamada para a Linha Mel e Derivados
-criarCarrossel('vitrine-mel', 'Mel e Derivados', [
-    { nome: 'Mel Cremoso', img: 'img/produtos/mel_cremoso.jpeg' },
-    { nome: 'Mel Puro', img: 'img/produtos/mel_puro.jpeg' },
-    { nome: 'Pólen Desidratado', img: 'img/produtos/polen.jpeg' },
-    { nome: ' Extrato de Própolis', img: 'img/produtos/propolis.jpeg' },
-    { nome: 'Mel Gourmet', img: 'img/produtos/mel_gourmet.jpeg' }
-]);
 
-// Chamada para Farinhas Naturais
-criarCarrossel('vitrine-farinhas', 'Farinhas Naturais', [
-    { nome: 'Cacau em Pó', img: 'img/produtos/Farinhas Naturais/Cacau em Pó.jpg' },
-    { nome: 'Farinha de Beterraba', img: 'img/produtos/Farinhas Naturais/Farinha de Beteraba.jpeg', extraClass: 'scale-125' },
-    { nome: 'Maca Peruana', img: 'img/produtos/Farinhas Naturais/Maca Peruana Vermelha.jpg' },
-    { nome: 'Farinha de Feno Grego', img: 'img/produtos/Farinhas Naturais/Farinha de Feno Grego.jpg' },
-    { nome: 'Farinha de Maçã', img: 'img/produtos/Farinhas Naturais/Farinha de Maça.jpg' },
-    { nome: 'Farinha de Uva', img: 'img/produtos/Farinhas Naturais/Farinha de Uva.jpg' },
-    { nome: 'Maca Peruana Negra', img: 'img/produtos/Farinhas Naturais/Macca Peruana Negra.jpg' }
-]);
-
-// Chamada para Cereais e Oleogenosas
-criarCarrossel('vitrine-cereais', 'Cereais e Oleaginosas', [
-    { nome: 'Amêndoas', img: 'img/produtos/Fotos Cereais e Oleaginosas/Amendoas.jpg' },
-    { nome: 'Arroz Preto', img: 'img/produtos/Fotos Cereais e Oleaginosas/Arroz Preto.jpg'},
-    { nome: 'Arroz Vermelho', img: 'img/produtos/Fotos Cereais e Oleaginosas/Arroz Vermelho.jpg'},
-    { nome: 'Castanha de Caju', img: 'img/produtos/Fotos Cereais e Oleaginosas/Castanha de Caju.jpg' },
-    { nome: 'Castanha do Pará', img: 'img/produtos/Fotos Cereais e Oleaginosas/Castanha Para.jpg' },
-    { nome: 'Granola', img: 'img/produtos/Fotos Cereais e Oleaginosas/Granola.jpg'},
-    { nome: 'Linhaça Dourada', img: 'img/produtos/Fotos Cereais e Oleaginosas/Linhaça Dourada.jpg' }
-]);
-
-// Chamada para Especiarias
-criarCarrossel('vitrine-especiarias', 'Especiarias', [
-    {nome: 'Cardamomo', img: 'img/produtos/Fotos Especiarias/Cardamomo.jpg' },
-    {nome: 'Ervas Finas', img: 'img/produtos/Fotos Especiarias/Ervas Finas.jpg' },
-    {nome: 'Orange Pepper', img: 'img/produtos/Fotos Especiarias/Orange-Pepper.jpg' },
-    {nome: 'Tempero Mineiro', img: 'img/produtos/Fotos Especiarias/TEMPEROMINEIRO.jpg'},
-    {nome: 'Tempero Sírio Bahar', img: 'img/produtos/Fotos Especiarias/Tempero Sirio Bahar.jpg' },
-    {nome: 'Tomilho em Pó', img: 'img/produtos/Fotos Especiarias/tomilho_em_po.jpg' },
-    {nome: 'Zaatar', img: 'img/produtos/Fotos Especiarias/Zaatar.jpg' }
-]);
-
-
-// Chamada para Fitness e Estética
-criarCarrossel('vitrine-fitness', 'Fitness e Estética', [
-    {nome: 'Spirulina', img: 'img/produtos/Fitenn e Estetica/Spirulina.jpg' },
-    { nome: 'Albumina', img: 'img/produtos/Fitenn e Estetica/Albumina.jpg' },
-    { nome: 'Tribulius', img: 'img/produtos/Fitenn e Estetica/Tribulius.jpg' },
-    { nome: 'Argila Amarela', img: 'img/produtos/Fitenn e Estetica/Argila Amarela.jpg' },
-    { nome: 'Argila Preta', img: 'img/produtos/Fitenn e Estetica/Argila Preta.jpg' },
-    { nome: 'Argila Vermelha', img: 'img/produtos/Fitenn e Estetica/argila_vermelha.jpg' }
-]);
-
-
-
-
-
-</script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/data.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
