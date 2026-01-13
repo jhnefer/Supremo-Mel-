@@ -21,7 +21,7 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
     container.innerHTML = `
     <section class="py-24 relative overflow-hidden bg-white border-b border-amber-50">
         <div class="absolute inset-0 z-0">
-            <img src="img/fundo_produtos.jpg" class="w-full h-full object-cover opacity-100">
+            <img src="img/fundo_produtos.jpg" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white"></div>
         </div>
 
@@ -50,11 +50,18 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
                 <div class="h-1 w-24 bg-amber-500 rounded-full"></div>
             </div>
 
-            <button @click="scrollPrev()" class="absolute left-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 hover:bg-amber-500 hover:text-white"><span class="material-icons">chevron_left</span></button>
-            <button @click="scrollNext()" class="absolute right-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 hover:bg-amber-500 hover:text-white"><span class="material-icons">chevron_right</span></button>
+            <button @click="scrollPrev()" class="absolute left-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 hover:bg-amber-500 hover:text-white transition-all"><span class="material-icons">chevron_left</span></button>
+            <button @click="scrollNext()" class="absolute right-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 hover:bg-amber-500 hover:text-white transition-all"><span class="material-icons">chevron_right</span></button>
             
             <div x-ref="container" class="flex overflow-x-auto gap-8 pb-10 pt-4 px-6 scroll-smooth scrollbar-hide snap-x h-[520px] items-center cursor-grab active:cursor-grabbing">
                 ${cardsHTML}
+            </div>
+
+            <div class="flex justify-end mt-4 pr-6">
+                <a href="https://wa.me/5598985710371" target="_blank" class="group inline-flex items-center gap-3 bg-[#4a2c0a] text-white font-bold py-3 px-8 rounded-2xl transition-all duration-300 hover:bg-amber-600 shadow-xl transform hover:-translate-y-1">
+                    <span>Conhecer mais produtos</span>
+                    <span class="material-icons transition-transform group-hover:translate-x-2">arrow_forward</span>
+                </a>
             </div>
         </div>
     </section>`;
@@ -96,7 +103,7 @@ function gerarDiferenciaisPrincipais(idAlvo, dados) {
                         <span class="material-icons text-5xl text-amber-600 ${d.animacao}">${d.icone}</span>
                     </div>
                     <h3 class="text-2xl font-display font-bold mb-4 text-[#4a2c0a]">${d.titulo}</h3>
-                    <p class="text-[#5d4037] leading-relaxed font-light text-lg italic opacity-90">
+                    <p class="text-[#b88f14] leading-relaxed font-light text-lg italic opacity-90">
                         "${d.texto}"
                     </p>
                 </div>
