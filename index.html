@@ -25,12 +25,19 @@
     
     <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[#fdfcf7] via-transparent to-transparent pointer-events-none"></div>
 
-    <div class="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-20 md:pb-40">
-        <a href="#produtos" 
-           class="bg-yellow-500/80 backdrop-blur-md text-white font-display font-bold italic tracking-wide py-4 px-10 md:py-5 md:px-14 rounded-full transition-all duration-500 hover:bg-yellow-500 hover:text-white hover:shadow-[0_0_45px_rgba(234,179,8,0.9)] text-xl md:text-2xl transform hover:scale-110 active:scale-95 shadow-2xl border border-yellow-600/70">
-            Conhecer Produtos
-        </a>
-    </div>
+    <div class="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-6 sm:pb-12 md:pb-40">
+    <a href="#produtos" 
+       class="bg-yellow-500/80 backdrop-blur-md text-white font-display font-bold italic tracking-wide 
+              /* Responsividade no tamanho do botão */
+              py-3 px-8 text-lg 
+              sm:py-4 sm:px-10 sm:text-xl 
+              md:py-5 md:px-14 md:text-2xl 
+              rounded-full transition-all duration-500 hover:bg-yellow-500 hover:text-white 
+              hover:shadow-[0_0_45px_rgba(234,179,8,0.9)] transform hover:scale-110 active:scale-95 
+              shadow-2xl border border-yellow-600/70">
+        Conhecer Produtos
+    </a>
+</div>
 </section>
 
     <section class="py-20 bg-[#fffff] dark:bg-background-dark">
@@ -130,11 +137,11 @@
             </div>
         </div>
     </section>
-
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <div id="footer-placeholder"></div>
-    <script src="js/carousel.js"></script>
-    <script src="js/data.js"></script>
+    
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <div id="footer-placeholder" defer></div>
+    <script src="js/carousel.js" defer></script>
+    <script src="js/data.js" defer></script>
     
 </body>
 </html>
