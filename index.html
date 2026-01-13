@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supremo Mel</title>
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <link rel="stylesheet" href="css/main.css" />
-
-    <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        primary: "#D4AF37", // Gold
+                        primary: "#D4AF37",
                         "background-light": "#FFFBF0",
                         "background-dark": "#1A1A1A",
-                        "text-light": "#333333",
-                        "text-dark": "#E5E5E5",
-                        "accent-light": "#A0522D", // Siena Brown
-                        "accent-dark": "#EAD6A5",
                     },
                     fontFamily: {
                         display: ["Playfair Display", "serif"],
@@ -35,28 +28,67 @@
             },
         };
     </script>
+    <!-- responsável pela rolagem suave -->
+
+    <style>
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+        @keyframes tractor { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .animate-spin-slow { animation: spin-slow 10s linear infinite; }
+    </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark transition-colors duration-300 overflow-x-hidden">
     
-   <nav class="absolute top-0 left-0 w-full z-50 py-6 px-10 flex justify-between items-center bg-transparent">
-    <img src="img/supremomellogo-Photoroom.png" alt="Supremo Mel Logo" class="h-16 md:h-12 object-contain" />
+<nav x-data="{ open: false }" class="absolute top-0 left-0 w-full z-50 py-6 px-4 md:px-10 flex justify-between items-center bg-transparent">
     
-    <div class="hidden md:flex space-x-4 text-white font-medium">
-        
+    <img src="img/supremomellogo-Photoroom.png" alt="Supremo Mel Logo" class="h-16 md:h-12 object-contain relative z-[60]" />
+    
+    <div class="hidden md:flex space-x-4">
         <a href="#produtos" 
-           class="px-5 py-2 rounded-full transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] transform hover:scale-105 text-lg">
+           class="px-5 py-2 rounded-full border-2 border-[#b88f14] text-white font-display font-bold italic tracking-wide transition-all duration-300 hover:bg-[#e6b219] hover:text-white hover:shadow-[0_0_20px_rgba(180,83,9,0.3)] transform hover:scale-105 text-lg bg-yellow-500/90">
             Produtos
         </a>
 
         <a href="#diferenciais" 
-           class="px-5 py-2 rounded-full transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] transform hover:scale-105 text-lg">
+           class="px-5 py-2 rounded-full border-2 border-[#b88f14] text-white font-display font-bold italic tracking-wide transition-all duration-300 hover:bg-[#e6b219] hover:text-white hover:shadow-[0_0_20px_rgba(180,83,9,0.3)] transform hover:scale-105 text-lg bg-yellow-500/90">
             Diferenciais
         </a>
 
         <a href="#contact"
-           class="px-5 py-2 rounded-full flex items-center transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] transform hover:scale-105 text-lg">
-            <span class="material-icons mr-2 text-xl"></span>
+           class="px-5 py-2 rounded-full border-2 border-[#b88f14] text-white font-display font-bold italic tracking-wide flex items-center transition-all duration-300 hover:bg-[#e6b219] hover:text-white hover:shadow-[0_0_20px_rgba(180,83,9,0.3)] transform hover:scale-105 text-lg bg-yellow-500/90">
             Contato
+        </a>
+    </div>
+
+    <button @click="open = !open" class="md:hidden relative z-[60] p-2 text-white bg-yellow-500/90 rounded-xl border border-[#b88f14] shadow-lg">
+        <span class="material-icons text-3xl" x-text="open ? 'close' : 'menu'">menu</span>
+    </button>
+
+    <div x-show="open" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 -translate-y-full"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-full"
+         @click.away="open = false"
+         class="absolute top-0 left-0 w-full bg-[#fdfcf7] shadow-2xl p-10 pt-32 flex flex-col space-y-4 md:hidden z-[50] border-b-4 border-[#b88f14]">
+        
+        <a href="#produtos" @click="open = false" 
+           class="px-6 py-4 rounded-2xl border-2 border-[#b88f14] text-white font-display font-bold italic text-center bg-yellow-500/90 text-xl shadow-md">
+           Produtos
+        </a>
+        <a href="#diferenciais" @click="open = false" 
+           class="px-6 py-4 rounded-2xl border-2 border-[#b88f14] text-white font-display font-bold italic text-center bg-yellow-500/90 text-xl shadow-md">
+           Diferenciais
+        </a>
+        <a href="#contact" @click="open = false" 
+           class="px-6 py-4 rounded-2xl border-2 border-[#b88f14] text-white font-display font-bold italic text-center bg-yellow-500/90 text-xl shadow-md">
+           Contato
         </a>
     </div>
 </nav>
@@ -68,9 +100,9 @@
     <div class="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-40">
         
         <a href="#produtos" 
-           class="bg-primary/70 backdrop-blur-md text-white font-bold py-5 px-14 rounded-full transition-all duration-500 
+           class="bg-primary/70 backdrop-blur-md text-white font-display font-bold italic tracking-wide font-bold py-5 px-14 rounded-full transition-all duration-500 
                   hover:bg-yellow-500 hover:text-white hover:shadow-[0_0_45px_rgba(234,179,8,0.9)]
-                  text-2xl transform hover:scale-110 active:scale-95 shadow-2xl">
+                  text-2xl transform hover:scale-110 active:scale-95 shadow-2xl bg-yellow-500/80 border border-yellow-600/70">
             Conhecer Produtos
         </a>
         
@@ -79,11 +111,11 @@
 
     <section class="py-20 bg-background-light dark:bg-background-dark">
     <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-accent-light dark:text-accent-dark mb-4">
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight">
             Qualidade Superior, Origem Sustentável
         </h2>
 
-        <p class="max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-20 text-[#5d4037] dark:text-stone-300 font-serif italic opacity-90 tracking-wide">
+        <p class="max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-20 text-[#F49E0B] dark:text-stone-300 font-serif italic opacity-90 tracking-wide">
             "Nossa história é forjada na paixão pela apicultura e no respeito à natureza. Cada gota do nosso mel é um testemunho da dedicação em oferecer um produto 100% puro.
                 Também somos responsáveis por fornecer produtos derivados do mel, além de alimentos de origem natural.
             
@@ -98,33 +130,6 @@
 <div id="vitrine-especiarias"></div>
 <div id="vitrine-fitness"></div></section>
 
-
-<style>
-    /* Força a rolagem lateral e esconde a barra */
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Permite arrastar com o scroll do mouse (Shift + Scroll) */
-    #produtos [x-ref='container'] {
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-    }
-</style>
-
-<style>
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-</style><style>
-    /* Estilo para esconder a barra de rolagem mas manter a funcionalidade */
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-</style>
-
 <section id="diferenciais" class="py-24 bg-[#fdfcf7] relative overflow-hidden">
     <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-20">
@@ -134,9 +139,10 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto mb-32">
-            <div class="group bg-white p-10 rounded-[2.5rem] shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-stone-100 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
-                <div class="w-20 h-20 bg-stone-50 rounded-2xl flex items-center justify-center mb-8 transition-colors group-hover:bg-amber-50">
-                    <span class="material-icons text-5xl text-amber-600/80 animate-[wiggle_3s_ease-in-out_infinite] group-hover:text-amber-600">eco</span>
+            
+            <div class="group bg-white p-10 rounded-[2.5rem] border-2 border-amber-500 flex flex-col items-center text-center transition-all duration-500 hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
+                <div class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center mb-8 transition-colors">
+                    <span class="material-icons text-5xl text-amber-600 animate-[wiggle_3s_ease-in-out_infinite]">eco</span>
                 </div>
                 <h3 class="text-2xl font-display font-bold mb-4 text-[#4a2c0a]">100% Natural</h3>
                 <p class="text-[#5d4037] leading-relaxed font-light text-lg italic opacity-90">
@@ -144,9 +150,9 @@
                 </p>
             </div>
 
-            <div class="group bg-white p-10 rounded-[2.5rem] shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-stone-100 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
-                <div class="w-20 h-20 bg-stone-50 rounded-2xl flex items-center justify-center mb-8 transition-colors group-hover:bg-amber-50">
-                    <span class="material-icons text-5xl text-amber-600/80 animate-[tractor_2s_ease-in-out_infinite] group-hover:text-amber-600">agriculture</span>
+            <div class="group bg-white p-10 rounded-[2.5rem] border-2 border-amber-500 flex flex-col items-center text-center transition-all duration-500 hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
+                <div class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center mb-8 transition-colors">
+                    <span class="material-icons text-5xl text-amber-600 animate-[tractor_2s_ease-in-out_infinite]">agriculture</span>
                 </div>
                 <h3 class="text-2xl font-display font-bold mb-4 text-[#4a2c0a]">Processo Artesanal</h3>
                 <p class="text-[#5d4037] leading-relaxed font-light text-lg italic opacity-90">
@@ -166,7 +172,6 @@
                         <p class="text-amber-600 text-sm mt-2 font-light uppercase tracking-[0.2em]">Uma jornada sensorial pela biodiversidade maranhense</p>
                     </div>
                 </div>
-
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
     
     <div class="group/item flex flex-col">
@@ -175,8 +180,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
         </div>
         <div class="px-2">
-            <h4 class="text-[#4a2c0a] font-display font-bold text-2xl mb-3 italic tracking-tight">Fava de Bolota</h4>
-            <p class="text-[#4a2c0a] leading-relaxed font-medium text-[15px] border-l-2 border-amber-500/30 pl-4 py-1">
+            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Fava de Bolota</h4>
+            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
                 Uma árvore nativa que produz um mel amargo, com propriedades medicinais e um sabor marcante.
             </p>
         </div>
@@ -188,8 +193,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
         </div>
         <div class="px-2">
-            <h4 class="text-[#4a2c0a] font-display font-bold text-2xl mb-3 italic tracking-tight">Jitirana</h4>
-            <p class="text-[#4a2c0a] leading-relaxed font-medium text-[15px] border-l-2 border-amber-500/30 pl-4 py-1">
+            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Jitirana</h4>
+            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
                 Um pasto apícola rico em néctar, resultando em um mel suave e floral, perfeito para paladares delicados.
             </p>
         </div>
@@ -198,11 +203,11 @@
     <div class="group/item flex flex-col">
         <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
             <img src="img/floradas/vassourinha.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
         </div>
         <div class="px-2">
-            <h4 class="text-[#4a2c0a] font-display font-bold text-2xl mb-3 italic tracking-tight">Vassourinha</h4>
-            <p class="text-[#4a2c0a] leading-relaxed font-medium text-[15px] border-l-2 border-amber-500/30 pl-4 py-1">
+            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Vassourinha</h4>
+            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
                 Conhecida popularmente, oferece um mel claro e refrescante, ideal para adoçar bebidas e receitas finas.
             </p>
         </div>
@@ -211,11 +216,11 @@
     <div class="group/item flex flex-col">
         <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
             <img src="img/floradas/angico de bezerro.JPG" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
         </div>
         <div class="px-2">
-            <h4 class="text-[#4a2c0a] font-display font-bold text-2xl mb-3 italic tracking-tight">Angico</h4>
-            <p class="text-[#4a2c0a] leading-relaxed font-medium text-[15px] border-l-2 border-amber-500/30 pl-4 py-1">
+            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Angico</h4>
+            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
                 Mel monofloral com propriedades medicinais, sabor suave e frutado de coloração límpida e clara.
             </p>
         </div>
@@ -223,12 +228,12 @@
 
     <div class="group/item flex flex-col">
         <div class="overflow-hidden rounded-[3rem] aspect-[3/4] shadow-2xl transition-all duration-700 hover:shadow-amber-500/40 mb-8 relative">
-            <img src="img/floradas/outras_especies.jpeg" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
+            <img src="img/floradas/outras_especies.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#4a2c0a]/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
         </div>
         <div class="px-2">
-            <h4 class="text-[#4a2c0a] font-display font-bold text-2xl mb-3 italic tracking-tight">Outras Espécies</h4>
-            <p class="text-[#4a2c0a] leading-relaxed font-medium text-[15px] border-l-2 border-amber-500/30 pl-4 py-1">
+            <h4 class="text-[#4a2c0a] text-2xl font-display font-bold italic tracking-wide">Outras Espécies</h4>
+            <p class="text-amber-700/90 font-sans italic leading-relaxed font-normal text-[15px] tracking-tight border-l-2 border-amber-500/40 pl-4 py-1">
                 Contribuições do marmelo, velame e bamburral, típicos da biodiversidade entre Maranhão e Piauí.
             </p>
         </div>
@@ -240,118 +245,86 @@
     </div>
 </section>
 
-<section id="institucional" class="py-32 bg-[#fdfcf7] relative overflow-hidden">
+
+<section id="institucional" class="py-24 bg-[#fdfcf7] relative overflow-hidden">
     
-    <div class="container mx-auto px-6 mb-20 text-center relative z-10">
+    <div class="container mx-auto px-6 mb-16 text-center relative z-10">
         <span class="text-amber-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Sobre a Supremo Mel</span>
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight italic">Nossa Essência</h2>
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tightc">Nossa Essência</h2>
         <div class="h-0.5 w-20 bg-amber-500/40 mx-auto"></div>
     </div>
 
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-[1300px] mx-auto items-stretch">
             
-            <div class="group relative p-12 rounded-[4rem] bg-white border-2 border-amber-500/30 flex flex-col transition-all duration-500 hover:bg-[#4a2c0a] hover:border-amber-500 shadow-sm hover:shadow-2xl hover:-translate-y-2">
-                <div class="mb-10 inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-500 group-hover:text-[#4a2c0a]">
-                    <span class="material-icons text-3xl">ads_click</span>
+            <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 
+                        hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2 ">
+                
+                <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-600 group-hover:text-white">
+                    <span class="material-icons text-2xl">ads_click</span>
                 </div>
-                <h3 class="text-2xl md:text-3xl font-display font-bold italic tracking-wide text-[#4a2c0a] mb-6 transition-colors duration-500 group-hover:text-white">
-                    Missão
-                </h3>
-                <p class="text-[#5d4037]/70 leading-relaxed font-light italic text-lg transition-colors duration-500 group-hover:text-amber-100/80">
-                    Oferecer produtos apícolas de pureza inquestionável, promovendo saúde e bem-estar através do respeito absoluto à biodiversidade e ao trabalho artesanal.
+                
+                <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Missão</h3>
+                
+                <p class="text-[#5d4037]  font-bold italic text-eading-relaxed font-light italic text-base opacity-90">
+                    Prover produtos naturais de alta qualidade, inspirados nos princípios cristãos de amor e integridade, promovendo saúde e bem-estar.
                 </p>
             </div>
 
-            <div class="group relative p-12 rounded-[4rem] bg-white border-2 border-amber-500/30 flex flex-col transition-all duration-500 hover:bg-[#4a2c0a] hover:border-amber-500 shadow-sm hover:shadow-2xl hover:-translate-y-2">
-                <div class="mb-10 inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-500 group-hover:text-[#4a2c0a]">
-                    <span class="material-icons text-3xl">visibility</span>
+            <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 
+                        hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
+                
+                <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-600 group-hover:text-white">
+                    <span class="material-icons text-2xl">visibility</span>
                 </div>
-                <h3 class="text-2xl md:text-3xl font-display font-bold italic tracking-wide text-[#4a2c0a] mb-6 transition-colors duration-500 group-hover:text-white">
-                    Visão
-                </h3>
-                <p class="text-[#5d4037]/70 leading-relaxed font-light italic text-lg transition-colors duration-500 group-hover:text-amber-100/80">
-                    Ser a referência máxima em méis de floradas raras no Maranhão, reconhecida pela excelência, sustentabilidade e inovação na apicultura nacional.
+                
+                <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Visão</h3>
+                
+                <p class="text-[#5d4037] leading-relaxed font-light italic text-base opacity-90">
+                    Ser a referência em produtos naturais, reconhecida pela paixão e compromisso, inspirando vidas em harmonia com a natureza e com Deus.
                 </p>
             </div>
 
-            <div class="group relative p-12 rounded-[4rem] bg-white border-2 border-amber-500/30 flex flex-col transition-all duration-500 hover:bg-[#4a2c0a] hover:border-amber-500 shadow-sm hover:shadow-2xl hover:-translate-y-2">
-                <div class="mb-10 inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-500 group-hover:text-[#4a2c0a]">
-                    <span class="material-icons text-3xl">auto_awesome</span>
+            <div class="group relative p-8 rounded-[3rem] bg-white border-2 border-amber-500 flex flex-col transition-all duration-500 
+                        hover:shadow-[0_20px_60px_rgba(217,119,6,0.6)] hover:-translate-y-2">
+                
+                <div class="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 transition-all duration-500 group-hover:bg-amber-600 group-hover:text-white">
+                    <span class="material-icons text-2xl">auto_awesome</span>
                 </div>
-                <h3 class="text-2xl md:text-3xl font-display font-bold italic tracking-wide text-[#4a2c0a] mb-6 transition-colors duration-500 group-hover:text-white">
-                    Valores
-                </h3>
-                <ul class="space-y-3">
-                    <li class="flex items-center gap-3 text-[#5d4037]/70 font-light italic text-lg transition-colors duration-500 group-hover:text-amber-100/80">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Pureza e Integridade
-                    </li>
-                    <li class="flex items-center gap-3 text-[#5d4037]/70 font-light italic text-lg transition-colors duration-500 group-hover:text-amber-100/80">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Sustentabilidade
-                    </li>
-                    <li class="flex items-center gap-3 text-[#5d4037]/70 font-light italic text-lg transition-colors duration-500 group-hover:text-amber-100/80">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Ética e Respeito
-                    </li>
-                </ul>
+                
+                <h3 class="text-xl font-display font-bold italic text-[#4a2c0a] mb-4">Valores</h3>
+                
+                <div class="flex flex-wrap gap-x-4 gap-y-4">
+                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Qualidade
+                    </span>
+                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Integridade
+                    </span>
+                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Responsabilidade
+                    </span>
+                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Amor
+                    </span>
+                    <span class="text-[#5d4037] font-light italic text-base flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Excelência
+                </div>
             </div>
 
         </div>
     </div>
 </section>
 
-<style>
-    @keyframes wiggle {
-        0%, 100% { transform: rotate(-3deg); }
-        50% { transform: rotate(3deg); }
-    }
-    @keyframes tractor {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-3px); }
-    }
-    .animate-spin-slow {
-        animation: spin 10s linear infinite;
-    }
-</style>
 
-<style>
-    @keyframes wiggle {
-        0%, 100% { transform: rotate(-3deg); }
-        50% { transform: rotate(3deg); }
-    }
-    @keyframes tractor {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-3px); }
-    }
-    .animate-spin-slow {
-        animation: spin 10s linear infinite;
-    }
-</style>
-
-<style>
-    @keyframes wiggle {
-        0%, 100% { transform: rotate(-5deg) scale(1); }
-        50% { transform: rotate(5deg) scale(1.1); }
-    }
-    @keyframes tractor {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-4px); }
-    }
-    .animate-spin-slow {
-        animation: spin 8s linear infinite;
-    }
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-</style>
 <section class="py-12 bg-gray-50 dark:bg-gray-800" id="contact">
     <div class="container mx-auto px-6 text-center">
         <div class="max-w-2xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-display font-bold text-accent-light dark:text-accent-dark mb-4">
+            <h2 class="text-3xl md:text-5xl font-display font-bold text-[#4a2c0a] mb-6 tracking-tight italic]">
                 Entre em Contato
             </h2>
-            
-            <p class="text-lg mb-8 text-accent-light/80 dark:text-accent-dark/80 leading-relaxed">
+
+            <p class=" text-lg mb-8 italic text-[#F49E0B] dark:text-stone-300 leading-relaxed">
                 Tem alguma dúvida ou deseja fazer um pedido especial? <br class="hidden md:block">
                 Clique no botão abaixo para falar conosco agora mesmo pelo WhatsApp.
             </p>
@@ -550,4 +523,5 @@ criarCarrossel('vitrine-fitness', 'Fitness e Estética', [
 </script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
+
 </html>
