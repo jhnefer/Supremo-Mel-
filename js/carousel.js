@@ -57,13 +57,6 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
                 ${cardsHTML}
             </div>
 
-            <div class="flex justify-end mt-4 pr-6">
-                <a href="https://wa.me/5598985710371" target="_blank" class="group inline-flex items-center gap-3 bg-[#4a2c0a] text-white font-bold py-3 px-8 rounded-2xl transition-all duration-300 hover:bg-amber-600 shadow-xl transform hover:-translate-y-1">
-                    <span>Conhecer mais produtos</span>
-                    <span class="material-icons transition-transform group-hover:translate-x-2">arrow_forward</span>
-                </a>
-            </div>
-        </div>
     </section>`;
 }
 

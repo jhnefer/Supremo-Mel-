@@ -160,6 +160,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="footer-placeholder" defer></div>
     <script src="js/carousel.js" defer></script>
     <script src="js/data.js" defer></script>
-    
+
+<div id="container-botao-produtos" class="fixed bottom-6 right-24 z-[1000] opacity-0 invisible transition-all duration-500 transform translate-y-10">
+    <a id="whatsapp-flutuante" 
+       href="https://api.whatsapp.com/send?phone=5598985710371" 
+       target="_blank" 
+       class="group inline-flex items-center bg-[#4a2c0a] text-white font-bold py-3 px-8 rounded-2xl transition-all duration-300 hover:bg-amber-600 shadow-2xl hover:-translate-y-1">
+        <span>Ver mais produtos</span>
+    </a>
+</div>
+
+<script>
+    const botaoProdutos = document.getElementById('container-botao-produtos');
+    const secaoProdutos = document.getElementById('produtos'); // O ID da sua seção de produtos
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Quando a seção de produtos entra na tela
+                botaoProdutos.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+                botaoProdutos.classList.add('opacity-100', 'visible', 'translate-y-0');
+            } else {
+                // Quando sai da tela
+                botaoProdutos.classList.add('opacity-0', 'invisible', 'translate-y-10');
+                botaoProdutos.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        });
+    }, { threshold: 0.1 }); // Dispara quando 10% da seção estiver visível
+
+    observer.observe(secaoProdutos);
+</script>
 </body>
 </html>
