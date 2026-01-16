@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
+<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.tailwindcss.com; 
+    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net; 
+    img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.google.com.br; 
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
+    font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+">    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -151,7 +160,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 ease-in-out font-medium whitespace-nowrap">
         Falar no WhatsApp
     </span>
-</a>
+    </a>
             </div>
         </div>
     </section>
@@ -161,7 +170,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="js/carousel.js" defer></script>
     <script src="js/data.js" defer></script>
 
-<div id="container-botao-produtos" class="fixed bottom-6 left-24 z-[1000] opacity-0 invisible transition-all duration-500 transform translate-y-10">
+<div id="container-botao-produtos" class="fixed bottom-6 left-5 z-[1000] opacity-0 invisible transition-all duration-500 transform translate-y-10">
     <a id="whatsapp-flutuante" 
        href="https://api.whatsapp.com/send?phone=5598985710371" 
        target="_blank" 
