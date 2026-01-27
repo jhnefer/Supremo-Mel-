@@ -22,8 +22,7 @@ async function carregarComponente(id, path) {
 
 window.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. CARREGAMENTO DE COMPONENTES (Navbar e Footer) ---
-    carregarComponente('navbar-placeholder', 'components/navbar.html');
+    // --- 1. CARREGAMENTO DE COMPONENTES  Footer
     carregarComponente('footer-placeholder', 'components/footer.html');
 
     // --- 2. VITRINES DE PRODUTOS (Carrosséis) ---
