@@ -41,4 +41,4 @@
 - **Font Awesome** - Ícones profissionais
 - **Google Fonts** - Tipografia personalizada (Playfair Display, Roboto)
 
-## 📋 Estrutura do Projeto
+
