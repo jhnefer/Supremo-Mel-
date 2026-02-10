@@ -3,7 +3,6 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
     const container = document.getElementById(idAlvo);
     if(!container) return;
 
-    // Duplica os itens para permitir o scroll infinito
     const produtosInfinity = [...produtos, ...produtos, ...produtos];
 
     const cardsHTML = produtosInfinity.map(p => `
@@ -19,7 +18,7 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
     `).join('');
 
     container.innerHTML = `
-    <section class="py-24 relative overflow-hidden bg-white border-b border-amber-50">
+    <section class="py-16 md:py-24 relative overflow-hidden bg-white border-b border-amber-50">
         <div class="absolute inset-0 z-0">
             <img src="img/fundo_produtos.jpg" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white"></div>
@@ -29,37 +28,36 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
              x-data="{ 
                 scrollNext() { 
                     let el = this.$refs.container;
-                    el.scrollBy({ left: 320, behavior: 'smooth' });
-                    if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 200) {
-                        setTimeout(() => { el.scrollLeft = el.scrollWidth / 3 }, 500);
-                    }
+                    el.scrollBy({ left: 300, behavior: 'smooth' });
                 }, 
                 scrollPrev() { 
                     let el = this.$refs.container;
-                    el.scrollBy({ left: -320, behavior: 'smooth' });
-                    if (el.scrollLeft <= 200) {
-                        setTimeout(() => { el.scrollLeft = el.scrollWidth / 3 }, 500);
-                    }
+                    el.scrollBy({ left: -300, behavior: 'smooth' });
                 } 
              }"
              x-init="setTimeout(() => { $refs.container.scrollLeft = $refs.container.scrollWidth / 3 }, 300)">
             
-            <div class="mb-12 relative text-left md:pl-10">
+            <div class="mb-8 md:mb-12 relative text-left md:pl-10">
                 <span class="text-amber-600 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Seleção Exclusiva</span>
                 <h2 class="text-3xl md:text-5xl font-display font-extrabold text-[#4a2c0a] mb-2">Linha <span class="text-amber-500">${tituloLinha}</span></h2>
                 <div class="h-1 w-24 bg-amber-500 rounded-full"></div>
             </div>
 
-            <button @click="scrollPrev()" class="absolute left-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 hover:bg-amber-500 hover:text-white transition-all"><span class="material-icons">chevron_left</span></button>
-            <button @click="scrollNext()" class="absolute right-4 top-[50%] -translate-y-1/2 z-30 bg-white/90 p-4 rounded-full shadow-2xl text-[#4a2c0a] md:block hidden border border-amber-100 hover:bg-amber-500 hover:text-white transition-all"><span class="material-icons">chevron_right</span></button>
+            <button @click="scrollPrev()" class="absolute left-2 md:left-4 top-[60%] z-30 bg-white/80 p-2 md:p-4 rounded-full shadow-lg text-[#4a2c0a] border border-amber-100 hover:bg-amber-500 hover:text-white transition-all animate-bounce-x">
+                <span class="material-icons text-sm md:text-base">chevron_left</span>
+            </button>
+            <button @click="scrollNext()" class="absolute right-2 md:right-4 top-[60%] z-30 bg-white/80 p-2 md:p-4 rounded-full shadow-lg text-[#4a2c0a] border border-amber-100 hover:bg-amber-500 hover:text-white transition-all animate-bounce-x">
+                <span class="material-icons text-sm md:text-base">chevron_right</span>
+            </button>
             
-            <div x-ref="container" class="flex overflow-x-auto gap-8 pb-10 pt-4 px-6 scroll-smooth scrollbar-hide snap-x h-[520px] items-center cursor-grab active:cursor-grabbing">
+            <div x-ref="container" class="flex overflow-x-auto gap-6 md:gap-8 pb-10 pt-4 px-6 scroll-smooth scrollbar-hide snap-x h-[480px] md:h-[520px] items-center cursor-grab active:cursor-grabbing">
                 ${cardsHTML}
             </div>
-
+        </div>
     </section>`;
 }
 
+// As funções gerarFloradas e gerarDiferenciaisPrincipais permanecem iguais...
 function gerarFloradas(idAlvo, listaFloradas) {
     const container = document.getElementById(idAlvo);
     if (!container) return;
