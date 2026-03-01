@@ -20,7 +20,7 @@ function criarCarrossel(idAlvo, tituloLinha, produtos) {
     container.innerHTML = `
     <section class="py-16 md:py-24 relative overflow-hidden bg-white border-b border-amber-50">
         <div class="absolute inset-0 z-0">
-            <img src="img/fundo_produtos.jpg" class="w-full h-full object-cover opacity-60">
+            <img src="img/fundo_produtos.webp" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white"></div>
         </div>
 

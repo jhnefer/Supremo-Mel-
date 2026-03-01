@@ -27,11 +27,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. VITRINES DE PRODUTOS (Carrosséis) ---
     criarCarrossel('vitrine-mel', 'Mel e Derivados', [
-        { nome: 'Mel Cremoso', img: 'img/produtos/mel_cremoso.jpeg' },
-        { nome: 'Mel Puro', img: 'img/produtos/mel_puro.jpeg' },
-        { nome: 'Pólen Desidratado', img: 'img/produtos/polen.jpeg' },
-        { nome: 'Extrato de Própolis', img: 'img/produtos/propolis.jpeg' },
-        { nome: 'Mel Gourmet', img: 'img/produtos/mel_gourmet.jpeg' }
+        { nome: 'Mel Cremoso', img: 'img/produtos/mel_cremoso.webp' },
+        { nome: 'Mel Puro', img: 'img/produtos/mel_puro.webp' },
+        { nome: 'Pólen Desidratado', img: 'img/produtos/polen.webp' },
+        { nome: 'Extrato de Própolis', img: 'img/produtos/propolis.webp' },
+        { nome: 'Mel Gourmet', img: 'img/produtos/mel_gourmet.webp' }
     ]);
 
     criarCarrossel('vitrine-farinhas', 'Farinhas Naturais', [
@@ -93,27 +93,27 @@ window.addEventListener('DOMContentLoaded', () => {
     gerarFloradas('grid-floradas', [
         {
             titulo: 'Fava de Bolota',
-            img: 'img/floradas/fava-de-bolota-feature.jpg',
+            img: 'img/floradas/fava-de-bolota-feature.webp',
             descricao: 'Uma árvore nativa que produz um mel amargo, com propriedades medicinais e um sabor marcante.'
         },
         {
             titulo: 'Jitirana',
-            img: 'img/floradas/Jitirana.jpg',
+            img: 'img/floradas/Jitirana.webp',
             descricao: 'Um pasto apícola rico em néctar, resultando em um mel suave e floral, perfeito para paladares delicados.'
         },
         {
             titulo: 'Vassourinha',
-            img: 'img/floradas/vassourinha.jpg',
+            img: 'img/floradas/vassourinha.webp',
             descricao: 'Conhecida popularmente, oferece um mel claro e refrescante, ideal para adoçar bebidas e receitas finas.'
         },
         {
             titulo: 'Angico',
-            img: 'img/floradas/angico de bezerro.JPG',
+            img: 'img/floradas/angico-de-bezerro.webp',
             descricao: 'Mel monofloral com propriedades medicinais, sabor suave e frutado de coloração límpida e clara.'
         },
         {
             titulo: 'Outras Espécies',
-            img: 'img/floradas/outras_especies.jpg',
+            img: 'img/floradas/outras_especies.webp',
             descricao: 'Contribuições do marmelo, velame e bamburral, típicos da biodiversidade entre Maranhão e Piauí.'
         }
     ]);
